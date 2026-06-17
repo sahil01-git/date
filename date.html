@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Let's Plan Our Date ❤️</title>
+
+    <link rel="stylesheet" href="date.css">
+
+</head>
+
+<body>
+
+    <!-- Top GIFs -->
+
+    <div class="gif-row">
+
+        <img src="hasher-sticker.gif" alt="Cute Bear">
+
+        <img src="littlebitofab-dance.gif" alt="Cute Bear">
+
+    </div>
+
+    <div class="container">
+
+        <h1>
+            Let's Plan Our Date ❤️
+        </h1>
+
+        <p>
+            Pick a special day ✨
+        </p>
+
+        <input
+        type="date"
+        id="datePicker">
+
+        <h2>
+            What should we do?
+        </h2>
+
+        <div class="options">
+
+            <label>
+                <input type="checkbox"
+                value="🎬 Movie">
+                Movie
+            </label>
+
+            <label>
+                <input type="checkbox"
+                value="🎳 Bowling">
+                Bowling
+            </label>
+
+            <label>
+                <input type="checkbox"
+                value="☕ Chai">
+                Chai
+            </label>
+
+            <label>
+                <input type="checkbox"
+                value="☕ Coffee">
+                Coffee
+            </label>
+
+            <label>
+                <input type="checkbox"
+                value="🍽 Dinner">
+                Dinner
+            </label>
+
+            <label>
+                <input type="checkbox"
+                value="🍟 Snacks">
+                Snacks
+            </label>
+
+        </div>
+
+        <button onclick="planDate()">
+
+            Confirm Our Date ❤️
+
+        </button>
+
+    </div>
+
+    <!-- Bottom GIF -->
+
+    <div class="bottom-gif">
+
+        <img src="littlebitofab-dance.gif" alt="Cute Bear">
+
+    </div>
+
+<script>
+
+// Prevent selecting past dates
+
+const currentYear = new Date().getFullYear();
+
+document.getElementById("datePicker").min =
+`${currentYear}-11-30`;
+
+// Save data and redirect
+
+function planDate(){
+
+    let date=document.getElementById("datePicker").value;
+
+    if(date==""){
+
+        alert("Please choose a date ❤️");
+
+        return;
+
+    }
+
+    let activity=[];
+
+    document.querySelectorAll(
+    "input[type='checkbox']:checked"
+    ).forEach(function(item){
+
+        activity.push(item.value);
+
+    });
+
+    fetch(
+    "https://script.google.com/macros/s/AKfycbxYX_zmVggHaNZRk7-q1iZd-xM04VtRAQa_L9lvV9CrMErlH-X3a7fW9k7ihbycTOh5mA/exec",
+    {
+
+        method:"POST",
+
+        body:JSON.stringify({
+
+            date:date,
+
+            activities:activity.join(", ")
+
+        })
+
+    })
+
+    .then(response=>response.text())
+
+    .then(data=>{
+
+        localStorage.setItem("date",date);
+
+        localStorage.setItem(
+        "activity",
+        activity.join(" • ")
+        );
+
+        window.location.href="final.html";
+
+    })
+
+    .catch(error=>{
+
+        console.log(error);
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>A Question For You ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Top GIFs -->
+
+    <div class="gif-row">
+
+        <img src="cute.gif"
+        alt="Rose Bear">
+
+        <img src="sad-crying.gif"
+        alt="Shy Bear">
+
+    </div>
+
+    <!-- Main Text -->
+
+    <div class="question">
+
+        <p class="h-text">
+            Will you go out with me?
+        </p>
+
+        <p class="sub-text">
+            (there is no wrong answer here)
+        </p>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <button
+        class="btn"
+        id="yesButton"
+        onclick="clickYes()">
+
+            Yes ❤️
+
+        </button>
+
+        <button
+        class="btn"
+        id="noButton"
+        onmouseover="moveButton()"
+        onclick="moveButton()">
+
+            No
+
+        </button>
+
+    </div>
+
+<script>
+
+function clickYes(){
+
+    window.location.href="yes.html";
+
+}
+
+function moveButton(){
+
+    const noButton = document.getElementById("noButton");
+
+    // Button dimensions
+    const buttonWidth = noButton.offsetWidth;
+    const buttonHeight = noButton.offsetHeight;
+
+    // Keep a margin from the edges
+    const margin = 20;
+
+    // Generate a position that stays inside the screen
+    const x = Math.random() *
+        (window.innerWidth - buttonWidth - 2 * margin) + margin;
+
+    const y = Math.random() *
+        (window.innerHeight - buttonHeight - 2 * margin) + margin;
+
+    noButton.style.position = "fixed";
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+}
+
+</script>
+
+</body>
+
+</html>

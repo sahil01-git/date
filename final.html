@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>See You Soon ❤️</title>
+
+<link rel="stylesheet"
+href="final.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+YAYYYYYY!! ❤️
+
+</h1>
+
+<div class="center-gif">
+
+    <img src="cute couple.gif" alt="Cute Couple">
+
+</div>
+
+<h2 id="dateText">
+
+</h2>
+
+<h3>
+
+Our Plan
+
+</h3>
+
+<p id="activityText">
+
+</p>
+
+<p class="message">
+
+✨ Can't wait to see you! ✨
+
+</p>
+
+</div>
+
+<div class="heart">
+
+<i class="fa-solid fa-heart"></i>
+
+</div>
+
+<script>
+
+let date=localStorage.getItem("date");
+
+let activity=localStorage.getItem("activity");
+
+document.getElementById("dateText").innerHTML=
+
+"❤️ See you on <br>"+date+" ❤️";
+
+document.getElementById("activityText").innerHTML=
+
+activity || "Surprise Date ❤️";
+
+</script>
+
+</body>
+
+</html>
