@@ -69,10 +69,25 @@
 
 <script>
 
-function clickYes(){
+function clickYes() {
 
-    window.location.href="yes.html";
+    fetch("https://script.google.com/macros/s/AKfycbzwGNdJOfcgIa7xiQYRezeu-VF_rKWrZsZleMuDBRoE-h5ummXEZUhStnPuBmM9YMpZGg/exec", {
 
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+            "Content-Type": "text/plain"
+        },
+
+        body: JSON.stringify({
+            event: "Clicked Yes ❤️"
+        })
+
+    }).catch(err => console.log(err));
+
+    window.location.href = "yes.html";
 }
 
 function moveButton(){
